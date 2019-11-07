@@ -1,0 +1,35 @@
+import semillas.*
+import parcelas.*
+
+describe "parcelas" {
+
+	var parcela = new Parcelas(ancho = 20, largo = 1, horasDeSolPorDia = 8)
+	var planta = new Soja()
+	var planta2 = new Soja()
+	var planta3 = new Soja()
+	var planta4 = new Soja()
+	var plantaQueNoEntra = new Soja()
+
+	fixture {
+		planta.altura(1.3)
+		planta2.altura(1.5)
+		planta3.altura(1.2)
+		planta4.altura(1.1)
+		plantaQueNoEntra.altura(1.3)
+		parcela.agregarPlanta(planta)
+		parcela.agregarPlanta(planta2)
+		parcela.agregarPlanta(planta3)
+		parcela.agregarPlanta(planta4)
+	}
+
+	test "test de superficie y cantidad Maxima de plantas" {
+		assert.equals(parcela.superficie(), 20)
+		assert.equals(parcela.cantidadMaxima(), 4)
+	}
+
+	test "test de error en plantas" {
+		assert.throwsException{ parcela.agregarPlanta(plantaQueNoEntra)}
+	}
+
+}
+

@@ -1,0 +1,19 @@
+import semillas.*
+
+describe "soja" {
+
+	var planta = new Soja()
+
+	fixture {
+		planta.altura(0.6)
+		planta.anioDeObtencion(2009)
+	}
+
+	test "test de soja" {
+		assert.notThat(planta.daSemillas())
+		assert.equals(planta.espacio(), 0.3)
+		assert.equals(planta.horasDeSol(), 7)
+	}
+
+}
+

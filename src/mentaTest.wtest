@@ -1,0 +1,21 @@
+import semillas.*
+
+describe "menta" {
+
+	var planta = new Menta()
+	var planta2 = new Menta()
+
+	fixture {
+		planta.altura(1)
+		planta2.altura(0.3)
+	}
+
+	test "test de menta" {
+		assert.that(planta.daSemillas())
+		assert.equals(planta.espacio(), 3)
+		assert.notThat(planta2.daSemillas())
+		assert.equals(planta2.espacio(), 0.9)
+	}
+
+}
+

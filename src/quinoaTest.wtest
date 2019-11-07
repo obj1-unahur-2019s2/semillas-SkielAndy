@@ -1,0 +1,21 @@
+import semillas.*
+
+describe "quinoa" {
+
+	var planta = new Quinoa()
+	var planta2 = new Quinoa()
+
+	fixture {
+		planta.horasDeSol(12)
+		planta2.horasDeSol(9)
+		planta.anioDeObtencion(2010)
+		planta2.anioDeObtencion(2001)
+	}
+
+	test "test de quinoa" {
+		assert.that(planta.daSemillas())
+		assert.that(planta2.daSemillas())
+	}
+
+}
+
